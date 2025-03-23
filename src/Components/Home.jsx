@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <div className="flex justify-center items-center w-full min-h-screen bg-gradient-to-br from-red-600 via-red-500 to-red-700 animate-gradient-move overflow-hidden">
@@ -10,14 +11,14 @@ export default function Home() {
           solid understanding before investing in any{" "}
           <span className="font-semibold">courses.</span>
         </p>
-        <a
-          href="/study"
+        <Link
+          to="/study"
           className="inline-block bg-white text-red-600 font-semibold px-6 py-3 rounded-lg text-lg hover:bg-opacity-90 transition-all duration-300"
         >
           <button>
           Start Learning
           </button>
-        </a>
+        </Link>
       </div>
     </div>
   );
