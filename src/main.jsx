@@ -8,6 +8,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+import ProtectedRoute from "./Components/ProtectedRoute";
 import Home from "./Components/Home";
 import Study from "./Components/Study";
 import About from "./Components/About"
@@ -17,9 +18,9 @@ import WebDev from "./Components/Courses/WebDev.jsx";
 const Flow = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
-      <Route path="" element={<Home />} />
-      <Route path="study" element={<Study />} />
-      <Route path="study/web-dev" element={<WebDev />} />
+      <Route index element={<Home />} />
+      <Route path="study" element={<ProtectedRoute><Study /></ProtectedRoute>} />
+      <Route path="study/web-dev" element={<ProtectedRoute><WebDev /></ProtectedRoute>} />
       <Route path="about" element={<About />} />
       <Route path="login" element={<Login />} />
     </Route>
