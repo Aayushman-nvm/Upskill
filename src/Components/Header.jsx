@@ -54,7 +54,7 @@ export default function Header() {
               About
             </NavLink>
           </li>*/}
-          {/*<li className="border-[3px] h-8 w-14 rounded-md border-[#ea4a4a] hover:border-[#fd6363] text-center flex items-center justify-center">
+          <li className="border-[3px] h-8 w-14 rounded-md border-[#ea4a4a] hover:border-[#fd6363] text-center flex items-center justify-center">
             <NavLink
               to="login"
               className={({ isActive }) =>
@@ -63,7 +63,7 @@ export default function Header() {
             >
               Log In
             </NavLink>
-          </li>*/}
+          </li>
         </ul>
       </div>
       {/*Hamburger button for mobile screens*/}
@@ -124,7 +124,7 @@ export default function Header() {
               About
             </NavLink>
           </li>*/}
-          {/*<li className="border-[3px] h-8 w-14 rounded-md border-[#ea4a4a] hover:border-[#fd6363] text-center flex items-center justify-center">
+          <li className="border-[3px] h-8 w-14 rounded-md border-[#ea4a4a] hover:border-[#fd6363] text-center flex items-center justify-center">
             <NavLink
               to="login"
               className={({ isActive }) =>
@@ -134,7 +134,7 @@ export default function Header() {
             >
               Log In
             </NavLink>
-          </li>*/}
+          </li>
         </ul>
       </div>
     </div>
