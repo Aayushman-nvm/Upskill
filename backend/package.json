@@ -4,8 +4,8 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon src/Server/index.js"
+    "start": "node Server/index.js",
+    "dev": "nodemon Server/index.js"
   },
   "keywords": [],
   "author": "",
