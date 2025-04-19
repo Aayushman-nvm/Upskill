@@ -1,7 +1,6 @@
 const path = require("path");
-require("dotenv").config({ path: path.join(__dirname, ".env") });
-
-const authRoutes = require("./routes/authRoutes");
+require("dotenv").config({ path: path.resolve(__dirname, "Server", ".env") });
+const authRoutes = require("./Server/routes/authRoutes");
 
 const express = require("express");
 const mongoose = require("mongoose");
@@ -9,7 +8,7 @@ const session = require("express-session");
 const passport = require("passport");
 const cors = require("cors");
 
-require("./config/passportConfig");
+require("./Server/config/passportConfig");
 
 const app = express();
 
