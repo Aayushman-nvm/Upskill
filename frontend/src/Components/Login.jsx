@@ -12,7 +12,7 @@ export default function Login() {
         
         <div className="space-y-4">
           <Link
-            to="http://localhost:8000/auth/github"
+            to="https://upskill.up.railway.app/auth/github"
             className="flex items-center justify-center gap-2 w-full bg-gray-800 text-white py-3 px-4 rounded-md hover:bg-gray-700 transition-colors"
           >
             <GitHubIcon />

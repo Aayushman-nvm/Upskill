@@ -1,4 +1,4 @@
-const URL = "http://localhost:8000";
+const URL = "https://upskill.up.railway.app/";
 
 export async function checkAuth() {
   try {
