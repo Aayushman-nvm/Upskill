@@ -8,8 +8,6 @@ const session = require("express-session");
 const passport = require("passport");
 const cors = require("cors");
 
-require("./Server/config/passportConfig");
-
 const app = express();
 
 app.use(
@@ -33,16 +31,25 @@ app.use(
   })
 );
 
-app.use(passport.initialize());
-app.use(passport.session());
-
-mongoose.set("bufferCommands",false);
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(process.env.MONGO_URI, { bufferCommands: true })
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.error(err));
 
+require("./Server/config/passportConfig");
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use("/auth", authRoutes);
+
+app.get("/debug", (req, res) => {
+  res.json({
+    connected: mongoose.connection.readyState === 1,
+    session: req.session,
+    user: req.user,
+  });
+});
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
