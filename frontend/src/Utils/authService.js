@@ -18,7 +18,7 @@ export async function checkAuth() {
 
 export async function logout() {
   try {
-    await fetch(`${URL}/auth/logout`, {
+    await fetch(`${URL}auth/logout`, {
       method: "GET",
       credentials: "include",
     });
