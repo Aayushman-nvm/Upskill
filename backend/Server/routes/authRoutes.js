@@ -23,6 +23,8 @@ router.get("/logout", (req, res, next) => {
 });
 
 router.get("/check-auth", (req, res) => {
+  console.log("SESSION:", req.session);
+  console.log("USER:", req.user);
   if (req.isAuthenticated()) {
     res.status(200).json({ isAuthenticated: true, user: req.user });
   } else {
