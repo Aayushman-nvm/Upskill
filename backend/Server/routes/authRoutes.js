@@ -12,13 +12,13 @@ router.get(
 router.get(
   "/github/callback",
   passport.authenticate("github", { failureRedirect: `${FrontendURL}` }),
-  (req, res) => res.redirect(`${FrontendURL}/study`)
+  (req, res) => res.redirect(`${FrontendURL}study`)
 );
 
 router.get("/logout", (req, res, next) => {
   req.logout((err) => {
     if (err) return next(err);
-    res.redirect(`${FrontendURL}/login`);
+    res.redirect(`${FrontendURL}login`);
   });
 });
 

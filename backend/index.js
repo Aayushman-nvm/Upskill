@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const passport = require("passport");
 const cors = require("cors");
+const MongoStore = require("connect-mongo")
 
 const app = express();
 
@@ -23,14 +24,18 @@ app.use(
   session({
     secret: process.env.SESSION_SECRET || "default_secret_key",
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
+    store:MongoStore.create({mongoUrl:process.env.MONGO_URI}),
     cookie: {
-      secure: process.env.NODE_ENV === "production",
+      secure: true,
       sameSite: "none",
+      httpOnly:true,
       maxAge: 24 * 60 * 60 * 1000,
     },
   })
 );
+
+app.set("trust proxy",1);
 
 mongoose
   .connect(process.env.MONGO_URI, { bufferCommands: true })
