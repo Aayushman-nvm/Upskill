@@ -13,7 +13,6 @@ passport.use(
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
-        console.log("Github profile:",profile);
         let user = await User.findOne({ githubId: profile.id });
         if (!user) {
           user = await User.create({
@@ -24,7 +23,6 @@ passport.use(
         }
         return done(null, user);
       } catch (err) {
-        console.error("Github auth error:",err);
         return done(err, null);
       }
     }
