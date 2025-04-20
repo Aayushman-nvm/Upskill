@@ -13,16 +13,18 @@ passport.use(
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
+        console.log("Github profile:",profile);
         let user = await User.findOne({ githubId: profile.id });
         if (!user) {
           user = await User.create({
             githubId: profile.id,
             name: profile.displayName || profile.username,
-            email: profile.emails ? profile.emails[0].value : null,
+            email: profile.emails?.[0]?.value || null,
           });
         }
         return done(null, user);
       } catch (err) {
+        console.error("Github auth error:",err);
         return done(err, null);
       }
     }
