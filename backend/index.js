@@ -36,12 +36,13 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use("/auth", authRoutes);
-
+mongoose.set("bufferCommands",false);
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.error(err));
+
+app.use("/auth", authRoutes);
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
