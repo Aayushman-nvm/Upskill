@@ -54,6 +54,7 @@ app.get("/debug", (req, res) => {
     connected: mongoose.connection.readyState === 1,
     session: req.session,
     user: req.user,
+    cookie: req.headers.cookie,
   });
 });
 
