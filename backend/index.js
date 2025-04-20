@@ -12,7 +12,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://upskill-learn.vercel.app/",
+    origin: "https://upskill-learn.vercel.app",
     credentials: true,
   })
 );
@@ -26,6 +26,7 @@ app.use(
     saveUninitialized: true,
     cookie: {
       secure: process.env.NODE_ENV === "production",
+      sameSite: "none",
       maxAge: 24 * 60 * 60 * 1000,
     },
   })

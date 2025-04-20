@@ -1,8 +1,8 @@
-const URL = "https://upskill.up.railway.app/";
+const URL = "https://upskill.up.railway.app";
 
 export async function checkAuth() {
   try {
-    const response = await fetch(`${URL}auth/check-auth`, {
+    const response = await fetch(`${URL}/auth/check-auth`, {
       method: "GET",
       credentials: "include",
     });
@@ -18,7 +18,7 @@ export async function checkAuth() {
 
 export async function logout() {
   try {
-    await fetch(`${URL}auth/logout`, {
+    await fetch(`${URL}/auth/logout`, {
       method: "GET",
       credentials: "include",
     });
